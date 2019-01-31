@@ -23,6 +23,7 @@ import ModalAddFunds from './modalAddFunds'
 import ModalBackupRestore from './modalBackupRestore'
 import ModalContribute from './modalContribute'
 import ModalDonation from './modalDonation'
+import ModalPending from './modalPending'
 import NextContribution from './nextContribution'
 import PanelWelcome from './panelWelcome'
 import Profile from './profile'
@@ -33,6 +34,7 @@ import SiteBanner from './siteBanner'
 import Tab from './tab'
 import TableContribute from './tableContribute'
 import TableDonation from './tableDonation'
+import TablePending from './tablePending'
 import TableTransactions from './tableTransactions'
 import Tip from './tip'
 import TipsMigrationAlert from './tipsMigrationAlert'
@@ -69,6 +71,7 @@ export {
   ModalBackupRestore,
   ModalContribute,
   ModalDonation,
+  ModalPending,
   NextContribution,
   PanelWelcome,
   Profile,
@@ -79,6 +82,7 @@ export {
   Tab,
   TableContribute,
   TableDonation,
+  TablePending,
   TableTransactions,
   Tip,
   TipsMigrationAlert,
