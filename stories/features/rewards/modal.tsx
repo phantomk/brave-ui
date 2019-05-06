@@ -11,7 +11,8 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import { DetailRow as ContributeRow } from '../../../src/features/rewards/tableContribute'
 import { DetailRow as DonationDetailRow } from '../../../src/features/rewards/tableDonation'
 import { DetailRow as TransactionsRow } from '../../../src/features/rewards/tableTransactions'
-import { ModalContribute, ModalBackupRestore, ModalActivity, ModalDonation } from '../../../src/features/rewards'
+import { DetailRow as AdsHistoryRow } from '../../../src/features/rewards/tableAdsHistory'
+import { ModalContribute, ModalBackupRestore, ModalActivity, ModalDonation, ModalShowAdsHistory } from '../../../src/features/rewards'
 import ModalAddFunds, { Address } from '../../../src/features/rewards/modalAddFunds'
 
 const bart = require('../../assets/img/bartBaker.jpeg')
@@ -438,6 +439,138 @@ storiesOf('Feature Components/Rewards/Modal', module)
       <ModalDonation
         rows={rows}
         onClose={doNothing}
+      />
+    )
+  })
+  .add('Show Ads History',() => {
+    const adsPerHour = 2
+    const adId: number = 0
+    const rowId: number = 0
+    const rows: AdsHistoryRow[] = [
+      {
+        id: rowId,
+        date: '1/30',
+        adDetailRows: [
+          {
+            id: adId,
+            adContent: {
+              brand: 'Pepsi',
+              brandLogo: '',
+              brandUrl: 'https://www.pepsi.com',
+              brandDisplayUrl: 'pepsi.com',
+              brandInfo: 'Animation & VFX Degree - Degree in Animation |',
+              adAction: 'Viewed',
+              likeAction: 1
+            },
+            categoryContent: {
+              category: 'Entertainment',
+              optAction: 0
+            }
+          },
+          {
+            id: adId + 1,
+            adContent: {
+              brand: 'TESLA',
+              brandLogo: '',
+              brandDisplayUrl: 'tesla.com',
+              brandUrl: 'https://www.tesla.com',
+              brandInfo: 'Animation & VFX Degree - Degree in Animation |',
+              adAction: 'Clicked',
+              likeAction: 2
+            },
+            categoryContent: {
+              category: 'Auto',
+              optAction: 0
+            }
+          },
+          {
+            id: adId + 2,
+            adContent: {
+              brand: 'Disney',
+              brandLogo: '',
+              brandDisplayUrl: 'disney.com',
+              brandUrl: 'https://www.disney.com',
+              brandInfo: 'Animation & VFX Degree - Degree in Animation |',
+              adAction: 'Clicked',
+              likeAction: 0
+            },
+            categoryContent: {
+              category: 'Travel',
+              optAction: 0
+            }
+          }
+        ]
+      },
+      {
+        id: rowId + 1,
+        date: '1/29',
+        adDetailRows: [
+          {
+            id: adId + 3,
+            adContent: {
+              brand: 'Puma',
+              brandLogo: '',
+              brandDisplayUrl: 'puma.com',
+              brandUrl: 'https://www.puma.com',
+              brandInfo: 'Animation & VFX Degree - Degree in Animation |',
+              adAction: 'Viewed',
+              likeAction: 0
+            },
+            categoryContent: {
+              category: 'Sports',
+              optAction: 0
+            }
+          },
+          {
+            id: adId + 4,
+            adContent: {
+              brand: 'Expedia.com',
+              brandLogo: '',
+              brandDisplayUrl: 'expedia.com',
+              brandUrl: 'https://www.expedia.com',
+              brandInfo: 'Animation & VFX Degree - Degree in Animation |',
+              adAction: 'Viewed',
+              likeAction: 0
+            },
+            categoryContent: {
+              category: 'Travel',
+              optAction: 2
+            }
+          },
+          {
+            id: adId + 5,
+            adContent: {
+              brand: 'H&M',
+              brandLogo: '',
+              brandDisplayUrl: 'hm.com',
+              brandUrl: 'https://www.hm.com',
+              brandInfo: 'Animation & VFX Degree - Degree in Animation |',
+              adAction: 'Closed',
+              likeAction: 0
+            },
+            categoryContent: {
+              category: 'Fashion',
+              optAction: 1
+            }
+          }
+        ]
+      }
+    ]
+    return (
+      <ModalShowAdsHistory
+        onClose={doNothing}
+        rows={rows}
+        adsPerHour={adsPerHour}
+      />
+    )
+  })
+  .add('Show Empty Ads History',() => {
+    const adsPerHour = 0
+    return (
+      <ModalShowAdsHistory
+        onClose={doNothing}
+        rows={undefined}
+        adsPerHour={adsPerHour}
       />
     )
   })
